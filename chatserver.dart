@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 class Matrix
 {
-  var rand = new Random()
+  var rand = new Random();
 List<List<String>> _matrix; 
 int numa;
 Matrix()
@@ -122,7 +122,7 @@ class ChatClient {
       String a = 'a';
       String s = 's';
       String d = 'd';
-     if (message == w and this.y < 38)
+     if (message == w && this.y > 1)
       {
         print (message);
         _matrix.getMat() [this.y][this.x] = '-';
@@ -136,7 +136,7 @@ class ChatClient {
         _matrix.getMat() [this.y][this.x] = '+';
 
       }
-      if (message == a and this.x > 1)
+      if (message == a && this.x+1 > 1)
         {
             print (message);
         _matrix.getMat() [this.y][this.x] = '-';
@@ -149,7 +149,7 @@ class ChatClient {
           }
         _matrix.getMat() [this.y][this.x] = '+';
         }
-      if (message == s and this.y > 1)
+      if (message == s && this.y < 38)
         {
             print (message);
         _matrix.getMat()[this.y][this.x] = '-';
@@ -162,7 +162,7 @@ class ChatClient {
           }
         _matrix.getMat() [this.y][this.x] = '+';
         }
-      if (message == d and this.x < 38)
+      if (message == d && this.x < 38)
         {
             print (message);
         _matrix.getMat()[this.y][this.x] = '-';
@@ -191,6 +191,11 @@ class ChatClient {
   }
     _socket.write(a);
     }
+  void endAll()
+    {
+      String a = "FIN GANO X";
+      _socket.write(a);
+    }
 }
 
 ServerSocket server;
@@ -217,7 +222,12 @@ void handleConnection(Socket client, Matrix matrix){
 
 void distributeMessage(ChatClient client, String message,matrix){
   for (ChatClient c in clients) {
-    if(matrix.get)
+
+    if(matrix.getNuma() == 0)
+      {for (ChatClient i in clients){
+        c.endAll();
+        server.close();}
+      }
      if(c == client)
      {
       c.write(message,matrix);
