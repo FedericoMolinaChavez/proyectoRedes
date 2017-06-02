@@ -47,6 +47,17 @@ List<List<String>> getMat()
   {
     return _matrix;
   }
+  bool actualizar ()
+    {
+      if (numa > 0)
+        {
+          numa = numa - 1;
+        }
+    }
+  int getNuma()
+    {
+      return numa;
+    }
 }
 
 
@@ -118,7 +129,8 @@ class ChatClient {
         this.y = this.y - 1;
         if (_matrix.getMat() == '@')
           {
-            this.puntos = this.punts+1;
+            this.puntos = this.puntos+1;
+            _matrix.actualizar();
             
           }
         _matrix.getMat() [this.y][this.x] = '+';
@@ -129,6 +141,12 @@ class ChatClient {
             print (message);
         _matrix.getMat() [this.y][this.x] = '-';
         this.x = this.x - 1;
+        if (_matrix.getMat() == '@')
+          {
+            this.puntos = this.puntos+1;
+            _matrix.actualizar();
+            
+          }
         _matrix.getMat() [this.y][this.x] = '+';
         }
       if (message == s and this.y > 1)
@@ -136,6 +154,12 @@ class ChatClient {
             print (message);
         _matrix.getMat()[this.y][this.x] = '-';
         this.y = this.y + 1;
+        if (_matrix.getMat() == '@')
+          {
+            this.puntos = this.puntos+1;
+            _matrix.actualizar();
+            
+          }
         _matrix.getMat() [this.y][this.x] = '+';
         }
       if (message == d and this.x < 38)
@@ -143,6 +167,12 @@ class ChatClient {
             print (message);
         _matrix.getMat()[this.y][this.x] = '-';
         this.x = this.x + 1;
+        if (_matrix.getMat() == '@')
+          {
+            this.puntos = this.puntos+1;
+            _matrix.actualizar();
+            
+          }
         _matrix.getMat() [this.y][this.x] = '+';
         }
     }
