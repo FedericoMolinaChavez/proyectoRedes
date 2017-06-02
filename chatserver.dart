@@ -1,11 +1,14 @@
 import 'dart:io';
-
+import 'dart:math';
 class Matrix
 {
+  var rand = new Random()
 List<List<String>> _matrix; 
+int numa;
 Matrix()
   {
     _matrix  = new List<List<int>>();
+    numa = rand.nextInt(10);
   for (var i = 0; i < 40; i++) {
     List<int> list = new List<int>();
 
@@ -25,6 +28,10 @@ Matrix()
       else if (j == 39)
         {
           list.add('*');
+        }
+      else if (j % numa == 1)
+        {
+          list.add('@');
         }
       else
       {
@@ -112,7 +119,7 @@ class ChatClient {
         if (_matrix.getMat() == '@')
           {
             this.puntos = this.punts+1;
-            _matrix.actualizar();
+            
           }
         _matrix.getMat() [this.y][this.x] = '+';
 
