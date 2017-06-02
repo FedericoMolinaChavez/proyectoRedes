@@ -9,6 +9,7 @@ Matrix()
   {
     _matrix  = new List<List<int>>();
     numa = rand.nextInt(10);
+    int aux = 0;
   for (var i = 0; i < 40; i++) {
     List<int> list = new List<int>();
 
@@ -29,7 +30,8 @@ Matrix()
         {
           list.add('*');
         }
-      else if (j % numa == 1)
+      else if (i > rand.nextInt(20) && i < rand.nextInt(35
+        ))
         {
           list.add('@');
         }
@@ -203,7 +205,7 @@ List<ChatClient> clients = [];
 
 void main() {
   Matrix matriz = new Matrix();
-  ServerSocket.bind(InternetAddress.ANY_IP_V4, 4567)
+  ServerSocket.bind("192.168.1.100", 4567)
     .then((ServerSocket socket) {
       server = socket;
       server.listen((client) {

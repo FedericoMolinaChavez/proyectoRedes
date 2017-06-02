@@ -3,7 +3,7 @@ import 'package:ansicolor/ansicolor.dart';
 Socket socket;
 
 void main() {
-  Socket.connect("localhost", 4567)
+  Socket.connect("192.168.1.100", 4567)
     .then((Socket sock) {
       socket = sock;
       socket.listen(dataHandler, 
