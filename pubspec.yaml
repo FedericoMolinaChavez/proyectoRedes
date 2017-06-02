@@ -1,0 +1,6 @@
+name: my_proyect
+version: 0.0.1
+description: My project.
+dependencies:
+ path: any
+ ansicolor: "^0.0.9"
